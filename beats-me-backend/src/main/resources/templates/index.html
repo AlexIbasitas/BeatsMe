@@ -1,0 +1,107 @@
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>BeatsMe</title>-->
+<!--    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
+<!--</head>-->
+<!--<body class="text-center m-30 py-4 px-2 bg-gray-800">-->
+<!--<div>-->
+<!--    <h1 class="text-6xl font-extrabold text-white">BeatsMe</h1>-->
+<!--    <img class="rounded-3xl" src="https://wallpapers.com/images/high/luffy-zoro-u53ag129d3jrags5.webp"/>-->
+<!--</div>-->
+
+<!--<div class="flex flex-col">-->
+<!--    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">-->
+<!--        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">-->
+<!--            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">-->
+<!--                <table class="min-w-full divide-y divide-gray-200">-->
+<!--                    <thead class="bg-gray-50">-->
+<!--                    <tr>-->
+<!--                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">-->
+<!--                            Song-->
+<!--                        </th>-->
+<!--                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">-->
+<!--                            Audio-->
+<!--                        </th>-->
+<!--                    </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody class="bg-white divide-y divide-gray-200">-->
+<!--                    <tr th:each="fileName : ${songKey}">-->
+<!--                        <td th:text="${fileName}" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">-->
+<!--                            Jane Cooper-->
+<!--                        </td>-->
+<!--                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-->
+<!--                            <audio controls>-->
+<!--                                <source th:src="${'https://beatsme.sfo2.cdn.digitaloceanspaces.com/' + fileName}" type="audio/mpeg">-->
+<!--                                https://beatsme.sfo2.cdn.digitaloceanspaces.com/' + {fileName}-->
+<!--                            </audio>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BeatsMe</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="text-center p-6 bg-purple-800">
+<div class="mb-6">
+    <h1 class="text-6xl font-extrabold text-gray-100">BeatsMe</h1>
+    <img class="mx-auto rounded-xl" src="https://beatsme.sfo2.cdn.digitaloceanspaces.com/Thea_Alex.jpg" alt="picture">
+
+
+    <div>
+        <form method="POST" enctype="multipart/form-data" action="/">
+<!--            <label class="mx-4 text-white">File to Upload:</label>-->
+            <input class="bg-green-700 font-medium p-1 rounded-xl ring-1 ring-gray-800 text-white" name="file" type="file" />
+            <button class="bg-green-700 font-medium p-1 rounded-xl ring-1 ring-gray-800 my-3 text-white hover:bg-white hover:text-black" type="submit">Upload File</button>
+        </form>
+    </div>
+</div>
+
+<div class="flex flex-col items-center">
+    <div class="w-full lg:w-2/3">
+        <div class="shadow-lg rounded-xl overflow-hidden bg-green-800">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-green-900">
+                <tr>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                        Song
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-white uppercase tracking-wider">
+                        Audio
+                    </th>
+                </tr>
+                </thead>
+                <tbody class="bg-green-700 divide-y divide-gray-200">
+                <tr th:each="fileName : ${songKey}">
+                    <td th:text="${fileName}" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+                        Jane Cooper
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-white">
+                        <audio controls class="w-full">
+                            <source th:src="${'https://beatsme.sfo2.cdn.digitaloceanspaces.com/' + fileName}" type="audio/mpeg">
+                            https://beatsme.sfo2.cdn.digitaloceanspaces.com/' + {fileName}
+                        </audio>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
